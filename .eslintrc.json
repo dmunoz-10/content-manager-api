@@ -1,0 +1,32 @@
+{
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "extends": ["standard-with-typescript", "prettier", "plugin:import/typescript"],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": ["@typescript-eslint", "prettier", "import"],
+    "ignorePatterns": "build",
+    "settings": {
+        "import/resolver": {
+            "node": {
+              "extensions": [".ts", ".json"]
+            },
+            "typescript": {}
+        }
+    },
+    "rules": {
+        "import/order": [
+            "error",
+            {
+              "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
+              "newlines-between": "always"
+            }
+        ]
+    }
+}
