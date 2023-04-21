@@ -43,6 +43,8 @@
               "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
               "newlines-between": "always"
             }
-        ]
+        ],
+        "@typescript-eslint/consistent-type-definitions": "off",
+        "import/no-duplicates": "off"
     }
 }
