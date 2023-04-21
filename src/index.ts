@@ -1,5 +1,6 @@
 import express, { type Application } from 'express';
 import cors, { type CorsOptions } from 'cors';
+import { format } from 'date-fns';
 
 import dataJson from './data.json';
 
@@ -27,8 +28,8 @@ app.get('/api/resources', (_req, res) => {
 });
 
 app.post('/api/resources', (req, res) => {
-  const id = String(Number(resources[-1].id) + 1);
-  const createdAt = new Date().toString();
+  const id = String(Number(resources[0].id) + 1);
+  const createdAt = format(new Date(), 'MMMM d, yyyy');
   const status = 'inactive';
   const resource: ResourceData = {
     ...(req.body as ResourceDataCreate),
