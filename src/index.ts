@@ -42,6 +42,17 @@ app.post('/api/resources', (req, res) => {
   res.status(200).json({ resource });
 });
 
+app.get('/api/resources/:id', (req, res) => {
+  const { id: resourceId } = req.params;
+  const resource: ResourceData | undefined = resources.find(({ id }) => resourceId === id);
+
+  if (resource !== undefined) {
+    res.status(200).json({ resource });
+  } else {
+    res.status(404).json({ error: 'Resource not found' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
