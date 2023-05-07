@@ -53,6 +53,23 @@ app.get('/api/resources/:id', (req, res) => {
   }
 });
 
+app.put('/api/resources/:id', (req, res) => {
+  const { id: resourceId } = req.params;
+  const resource: ResourceData | undefined = resources.find(({ id }) => resourceId === id);
+
+  if (resource !== undefined) {
+    const resourceIndex = resources.findIndex(({ id }) => resourceId === id);
+    const { id: _id, ...restData } = req.body as ResourceData;
+    resources[resourceIndex] = {
+      id: resourceId,
+      ...restData,
+    };
+    res.status(200).json({ message: 'Resource updated!' });
+  } else {
+    res.status(404).json({ error: 'Resource not found' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
