@@ -27,6 +27,11 @@ app.get('/api/resources', (_req, res) => {
   res.status(200).json(resources);
 });
 
+app.get('/api/resources/active', (_req, res) => {
+  const activeResource = resources.find(({ status }) => status === 'active');
+  res.status(200).json(activeResource);
+});
+
 app.post('/api/resources', (req, res) => {
   const id = String(Number(resources[0].id) + 1);
   const createdAt = format(new Date(), 'MMMM d, yyyy');
@@ -83,6 +88,7 @@ app.put('/api/resources/:id', (req, res) => {
       resources[resourceIndex] = {
         id: resourceId,
         ...data,
+        activatedAt: format(new Date(), 'MMMM d, yyyy'),
       };
     }
 
