@@ -1,6 +1,5 @@
 import express, { type Application } from 'express';
 import cors, { type CorsOptions } from 'cors';
-import { format } from 'date-fns';
 
 import dataJson from './data.json';
 
@@ -34,7 +33,7 @@ app.get('/api/resources/active', (_req, res) => {
 
 app.post('/api/resources', (req, res) => {
   const id = String(Number(resources[0].id) + 1);
-  const createdAt = format(new Date(), 'MMMM d, yyyy');
+  const createdAt = JSON.stringify(new Date());
   const status = 'inactive';
   const resource: ResourceData = {
     ...(req.body as ResourceDataCreate),
@@ -76,7 +75,7 @@ app.put('/api/resources/:id', (req, res) => {
         resources[resourceIndex] = {
           id: resourceId,
           ...data,
-          activatedAt: format(new Date(), 'MMMM d, yyyy'),
+          activatedAt: JSON.stringify(new Date()),
         };
 
         resources[activeResourceIndex] = {
@@ -88,7 +87,7 @@ app.put('/api/resources/:id', (req, res) => {
       resources[resourceIndex] = {
         id: resourceId,
         ...data,
-        activatedAt: format(new Date(), 'MMMM d, yyyy'),
+        activatedAt: JSON.stringify(new Date()),
       };
     }
 
