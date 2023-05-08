@@ -45,6 +45,7 @@
             }
         ],
         "@typescript-eslint/consistent-type-definitions": "off",
-        "import/no-duplicates": "off"
+        "import/no-duplicates": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off"
     }
 }
