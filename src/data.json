@@ -7,7 +7,8 @@
     "priority": 3,
     "timeToFinish": 120,
     "status": "inactive",
-    "createdAt": "November 22, 2022"
+    "createdAt": "November 22, 2022",
+    "activatedAt": ""
   },
   {
     "id": "2",
@@ -17,7 +18,8 @@
     "priority": 3,
     "timeToFinish": 60,
     "status": "inactive",
-    "createdAt": "December 18, 2022"
+    "createdAt": "December 18, 2022",
+    "activatedAt": ""
   },
   {
     "id": "1",
@@ -27,6 +29,7 @@
     "priority": 3,
     "timeToFinish": 30,
     "status": "inactive",
-    "createdAt": "March 10, 2023"
+    "createdAt": "March 10, 2023",
+    "activatedAt": ""
   }
 ]

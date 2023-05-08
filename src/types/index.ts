@@ -7,6 +7,7 @@ export type ResourceData = {
   timeToFinish: number;
   status: string;
   createdAt: string;
+  activatedAt: string;
 };
 
 export type ResourceDataUpdate = {
@@ -17,6 +18,7 @@ export type ResourceDataUpdate = {
   timeToFinish: number;
   status: string;
   createdAt: string;
+  activatedAt: string;
 };
 
 export type ResourceDataCreate = {

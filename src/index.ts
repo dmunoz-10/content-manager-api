@@ -36,6 +36,7 @@ app.post('/api/resources', (req, res) => {
     id,
     createdAt,
     status,
+    activatedAt: '',
   };
   resources.unshift(resource);
 
@@ -70,6 +71,7 @@ app.put('/api/resources/:id', (req, res) => {
         resources[resourceIndex] = {
           id: resourceId,
           ...data,
+          activatedAt: format(new Date(), 'MMMM d, yyyy'),
         };
 
         resources[activeResourceIndex] = {
