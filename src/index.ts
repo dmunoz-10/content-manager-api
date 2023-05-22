@@ -33,7 +33,7 @@ app.get('/api/resources/active', (_req, res) => {
 
 app.post('/api/resources', (req, res) => {
   const id = String(Number(resources[0].id) + 1);
-  const createdAt = JSON.stringify(new Date());
+  const createdAt = new Date().toString();
   const status = 'inactive';
   const resource: ResourceData = {
     ...(req.body as ResourceDataCreate),
@@ -75,7 +75,7 @@ app.put('/api/resources/:id', (req, res) => {
         resources[resourceIndex] = {
           id: resourceId,
           ...data,
-          activatedAt: JSON.stringify(new Date()),
+          activatedAt: new Date().toString(),
         };
 
         resources[activeResourceIndex] = {
@@ -87,7 +87,7 @@ app.put('/api/resources/:id', (req, res) => {
       resources[resourceIndex] = {
         id: resourceId,
         ...data,
-        activatedAt: JSON.stringify(new Date()),
+        activatedAt: new Date().toString(),
       };
     }
 
